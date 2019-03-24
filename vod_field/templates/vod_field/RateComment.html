@@ -1,0 +1,210 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Kommentar {{ player.displayed_rounds }} von ingesamt {{ player.ceiling_rounds }} Kommentaren
+{% endblock %}
+
+
+{% block content %}
+
+<p>
+<strong>Das Bild:</strong><br>
+<div class="center">
+    
+        <img width="75%" height="75%" src="{% static imgPath %}" />
+</p>
+<p>
+<strong>Der Kommentar:</strong><br>
+<div class="instructions well well-lg" xmlns="http://www.w3.org/1999/html">
+{{player.comment}}
+</div>
+</div>
+<br>
+
+<div class="form-group required">
+    
+        
+        <label class="col-form-label" for="id_q1_0"><strong>Ist der Kommentar freundlich oder feindselig gegenüber der im Foto dargestellten Gruppe? </strong></label>
+        <div class="controls  field-q1">
+            <div class="form-check form-check-inline">
+                <label for="id_q1_0" class="form-check-label">sehr freundlich &nbsp</label>
+                <input type="radio" name="q1" value="1" required="" id="id_q1_0" class="form-check-input">
+
+                <label for="id_q1_0" class="form-check-label">1</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="2" required="" id="id_q1_1" class="form-check-input">
+
+                <label for="id_q1_1" class="form-check-label">2</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="3" required="" id="id_q1_2" class="form-check-input">
+
+                <label for="id_q1_2" class="form-check-label">3</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="4" required="" id="id_q1_3" class="form-check-input">
+
+                <label for="id_q1_3" class="form-check-label">4</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="5" required="" id="id_q1_4" class="form-check-input">
+
+                <label for="id_q1_4" class="form-check-label">5</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="6" required="" id="id_q1_5" class="form-check-input">
+
+                <label for="id_q1_5" class="form-check-label">6</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="7" required="" id="id_q1_6" class="form-check-input">
+
+                <label for="id_q1_6" class="form-check-label">7</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="8" required="" id="id_q1_7" class="form-check-input">
+
+                <label for="id_q1_7" class="form-check-label">8</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q1" value="9" required="" id="id_q1_8" class="form-check-input">
+
+                <label for="id_q1_8" class="form-check-label"> 9 sehr feindselig</label>
+            </div>
+        
+            <br><br>
+            <div class="row">
+                <div class="col-xs-11 col-sm-6 col-md-8">
+
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="q1" value="Nicht zu bewerten" required="" id="id_q1_9" class="form-check-input">
+
+                        <label for="id_q1_9" class="form-check-label">Nicht zu bewerten</label>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+
+
+<div class="form-group required">
+    
+        
+    <label class="col-form-label" for="id_against_other_0"><strong>Richtet sich der Kommentar an einen anderen Nutzer?</strong></label>
+    <div class="controls  field-against_other">
+            <div class="form-check form-check-inline">
+                <input type="radio" name="against_other" value="Nein" required="" id="id_against_other_0" class="form-check-input">
+
+                <label for="id_against_other_0" class="form-check-label">Nein</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="against_other" value="Ja, er ist zustimmend" required="" id="id_against_other_1" class="form-check-input">
+
+                <label for="id_against_other_1" class="form-check-label">Ja, er ist zustimmend</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="against_other" value="Ja, er ist ablehnend" required="" id="id_against_other_2" class="form-check-input">
+
+                <label for="id_against_other_2" class="form-check-label">Ja, er ist ablehnend</label>
+            </div>
+        
+    
+            <br><br>
+            <div class="row">
+                <div class="col-xs-11 col-sm-6 col-md-8">
+
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="against_other" value="Nicht zu bewerten" required="" id="id_against_other_3" class="form-check-input">
+
+                        <label for="id_against_other_3" class="form-check-label">Nicht zu bewerten</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+    </div>
+        
+    
+</div>
+<div class="form-group required">
+    
+        
+            <label class="col-form-label" for="id_should_allow_0"><strong>Sollte dieser Kommentar in einem Internetforum erlaubt sein?</strong></label>
+            <div class="controls  field-should_allow">
+                <div class="form-check form-check-inline">
+                <input type="radio" name="should_allow" value="Nein" required="" id="id_should_allow_0" class="form-check-input">
+
+                <label for="id_should_allow_0" class="form-check-label">Nein</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="should_allow" value="Ja" required="" id="id_should_allow_1" class="form-check-input">
+
+                <label for="id_should_allow_1" class="form-check-label">Ja</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="should_allow" value="Ich weiß nicht" required="" id="id_should_allow_2" class="form-check-input">
+
+                <label for="id_should_allow_2" class="form-check-label">Ich weiß nicht</label>
+            </div>
+                
+
+                
+            </div>
+        
+</div>
+<br>
+<strong>Welche Merkmale treffen auf den Kommentar zu?</strong>
+<p>
+      {% formfield player.c_1 %}
+      {% formfield player.c_2 %}
+      {% formfield player.c_3 %}
+      {% formfield player.c_4 %}
+      {% formfield player.c_5 %}
+      {% formfield player.c_6 %}
+</p>
+  {{ form.q1.errors }}
+  {{ form.against_other.errors }}
+
+    {% next_button %}
+
+{% endblock %}

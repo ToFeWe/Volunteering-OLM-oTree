@@ -1,0 +1,143 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Fragebogen (Seite 1 von 2)
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        <strong>Bitte beantworten Sie uns noch einige Fragen zu Ihrer Person:</strong>
+    </p>
+
+            {% formfield player.q_age %}
+
+            {% formfield player.q_gender %}
+
+            {% formfield player.q_country %}
+
+            {% formfield player.q_study_level %}
+
+            {% formfield player.q_employment %}
+
+            {% formfield player.q_inhabitants %}
+
+<div class="form-group required">
+    
+        
+            <label class="col-form-label" for="id_q_politics_0">In der Politik wird manchmal von "Links" und "Rechts" gesprochen. Wo würden Sie sich auf dieser Skala platzieren, wobei 0 "Links" und 10 "Rechts" bedeutet?</label>
+            <div class="controls  field-q_politics">
+                <div class="form-check form-check-inline">
+                <label for="id_q_politics_0" class="form-check-label">Links &nbsp</label><input type="radio" name="q_politics" value="0 Links" required="" id="id_q_politics_0" class="form-check-input">
+                <label for="id_q_politics_0" class="form-check-label">0</label>
+                
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="1" required="" id="id_q_politics_1" class="form-check-input">
+
+                <label for="id_q_politics_1" class="form-check-label">1</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="2" required="" id="id_q_politics_2" class="form-check-input">
+
+                <label for="id_q_politics_2" class="form-check-label">2</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="3" required="" id="id_q_politics_3" class="form-check-input">
+
+                <label for="id_q_politics_3" class="form-check-label">3</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="4" required="" id="id_q_politics_4" class="form-check-input">
+
+                <label for="id_q_politics_4" class="form-check-label">4</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="5" required="" id="id_q_politics_5" class="form-check-input">
+
+                <label for="id_q_politics_5" class="form-check-label">5</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="6" required="" id="id_q_politics_6" class="form-check-input">
+
+                <label for="id_q_politics_6" class="form-check-label">6</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="7" required="" id="id_q_politics_7" class="form-check-input">
+
+                <label for="id_q_politics_7" class="form-check-label">7</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="8" required="" id="id_q_politics_8" class="form-check-input">
+
+                <label for="id_q_politics_8" class="form-check-label">8</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="9" required="" id="id_q_politics_9" class="form-check-input">
+
+                <label for="id_q_politics_9" class="form-check-label">9</label>
+            </div>
+        
+    
+        
+            <div class="form-check form-check-inline">
+                <input type="radio" name="q_politics" value="10 Rechts" required="" id="id_q_politics_10" class="form-check-input">
+
+                <label for="id_q_politics_10" class="form-check-label">10 Rechts</label>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-xs-11 col-sm-6 col-md-8">
+
+       
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="q_politics" value="keine Angabe" required="" id="id_q_politics_11" class="form-check-input">
+
+                        <label for="id_q_politics_11" class="form-check-label">keine Angabe</label>
+                    </div>
+                </div>
+            </div>     
+            </div>
+        
+    
+</div>
+
+
+{% formfield player.q_freq_task %}
+
+{% formfield player.q_freq_clickworker %}
+
+
+{{ form.q_politics.errors }}
+
+
+    {% next_button %}
+{% endblock %}

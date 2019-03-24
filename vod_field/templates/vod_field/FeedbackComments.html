@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Feedback zur Aufgabe
+{% endblock %}
+
+{% block content %}
+    <strong>Sie haben die Hauptaufgabe erfolgreich abgeschlossen. Ingesamt haben Sie {{ time_task_min }} Minuten das Bewerten der {{ Constants.num_rounds_before }} Kommentare benötigt.</strong>
+    <br>
+    Teilnehmer dieser Aufgabe benötigen normalerweise zwischen {{ Constants.lb_minutes}} Minuten und {{ Constants.ub_minutes}} Minuten um {{ Constants.num_rounds_before }} Kommentare zu bewerten.
+    <br>
+
+
+
+     <br><br>
+     <p>    
+    <strong>Im Folgenden haben Sie die Möglichkeit einen Bonus für Ihr Team zu verdienen.
+    Zur Erinnerung: In Ihrem Team sind 
+    {% if pop_uncertain %}
+    zwischen {{ lb_group_size }} und 
+    {{ ub_group_size }} Personen.
+    {% else %}
+    genau {{ mean_group_size }} Personen.
+    {% endif %}
+    <br>
+    </strong> Wir werden diese optionale Bonusaufgabe auf der nächsten Seite erklären.
+    Ihre Entscheidung ob Sie diese Aufgabe absolvieren wollen oder nicht, wird keinen Einfluss auf Ihre Reputation auf der Clickworker
+    Plattform oder auf Ihr bisher verdientes Geld haben.
+    </p>
+    {% next_button %}
+
+{% endblock %}
+
+

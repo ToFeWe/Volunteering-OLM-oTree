@@ -1,0 +1,138 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Herzlich Willkommen
+{% endblock %}
+
+{% block content %}
+
+<strong> Einleitung: </strong>
+<div class="instructions well well-lg" xmlns="http://www.w3.org/1999/html">
+    <p>
+    Herzlich willkommen und vielen Dank für Ihre Unterstützung unseres Projektes. Sie werden in dieser Aufgabe Kommentare von Nutzern aus einem Internetforum bewerten. Durch Ihre Mithilfe wird 
+    es uns möglich sein, das Verhalten unserer Nutzer besser zu verstehen und einschätzen zu können. Eine genauere Erklärung zu der Aufgabe finden sind im Abschnitt "Ihre Aufgabe". 
+    </p>
+    <p>
+    <strong> Bitte beachten Sie:</strong><br>
+    Die Qualität der Daten, die durch das Bewerten der Kommentare entstehen, ist uns ein großes Anliegen. 
+    Des Weiteren gibt es eine Vielzahl von Kommentaren aus dem Internetforum, die alle bewertet werden sollen.<br>
+    <strong>Um die Datenqualität und eine effiziente Bearbeitung der Aufgabe sicherzustellen, werden Sie in einem Team arbeiten. Ihr Team besteht dabei aus 
+    {% if pop_uncertain %}
+    {{ lb_group_size }} bis 
+    {{ ub_group_size }}
+    {% else %}
+    genau {{ mean_group_size }} 
+    {% endif %}
+    Mitgliedern. </strong> Sie werden zunächst individuell an der unten beschriebenen Aufgabe arbeiten.
+    </p>
+
+
+
+</div>
+
+<strong> Ihre Aufgabe: </strong>
+<div class="instructions well well-lg" xmlns="http://www.w3.org/1999/html">
+    Wir werden Ihnen im Folgenden eine Reihe von Bildern zeigen, die jeweils mit einem Kommentar versehen sind. Diese Kommentare stammen von unterschiedlichen Nutzern aus einem 
+    Internetforum. Zu diesen Kommentaren haben wir jeweils die folgenden vier Fragen an Sie:<br><br>
+    <p>
+    <strong>1. Ist der Kommentar freundlich oder feindselig gegenüber der im Foto dargestellten Gruppe?</strong><br>
+    Wir möchten von Ihnen gerne wissen, für wie feindselig Sie den Kommentar gegenüber dem im Bild gezeigten Thema finden.
+    <br>
+    Sie sollen die Kommentare dafür auf einer Skala von 1 bis 9 bewerten. 1 bedeutet sehr freundlich, 9 bedeutet sehr feindselig.
+        <div class="form-group required">
+                <label class="radio-inline" for="id_q1_1">sehr freundlich &nbsp</label><label class="radio-inline" for="id_q1_1"><input type="radio" id="id_q1_1" value="1 sehr freundlich" name="q1"> 1</label>
+
+                <label class="radio-inline" for="id_q1_2"><input type="radio" id="id_q1_2" value="2" name="q1" > 2</label>
+
+                <label class="radio-inline" for="id_q1_3"><input type="radio" id="id_q1_3" value="3" name="q1" > 3</label>
+
+                <label class="radio-inline" for="id_q1_4"><input type="radio" id="id_q1_4" value="4" name="q1" > 4</label>
+
+                <label class="radio-inline" for="id_q1_5"><input type="radio" id="id_q1_5" value="5" name="q1" > 5</label>
+
+                <label class="radio-inline" for="id_q1_6"><input type="radio" id="id_q1_6" value="6" name="q1" > 6</label>
+
+                <label class="radio-inline" for="id_q1_7"><input type="radio" id="id_q1_7" value="7" name="q1" > 7</label>
+
+                <label class="radio-inline" for="id_q1_8"><input type="radio" id="id_q1_8" value="8" name="q1" > 8</label>
+
+                <label class="radio-inline" for="id_q1_9"><input type="radio" id="id_q1_9" value="9 sehr feindselig" name="q1" > 9 sehr feindselig</label>
+            </div><!--- .controls -->
+        In einigen Fällen sind die Kommentare schwer zu bewerten. Bitte klicken Sie in diesen Fällen auf das Kästchen "Nicht zu bewerten".
+
+    </p>
+    <p>
+    <strong>2. Richtet sich der Kommentar an einen anderen Nutzer?</strong><br>
+        Teilweise richten sich die Kommentare, die sie sehen, an andere Nutzer aus dem Internetforum. Uns interessiert, ob der Kommentar an einen anderen Nutzer gerichtet ist und falls ja,
+         ob er dem anderen Nutzer gegenüber zustimmend oder ablehnend ist. Wir bitten Sie daher auch die folgende Frage für jeden Kommentar zu beantworten: "Richtet sich der Kommentar an einen anderen Nutzer?"
+        <br>
+        <div class="controls  field-against_other">
+            <label class="radio-inline" for="id_against_other_nein"><input type="radio" id="id_against_other_nein" value="Nein" name="against_other"> Nein</label>
+            <label class="radio-inline" for="id_against_other_yes_positiv"><input type="radio" id="id_against_other_yes_positiv" value="Ja, er ist zustimmend" name="against_other"> Ja, er ist zustimmend</label>
+            <label class="radio-inline" for="id_against_other_yes_negativ"><input type="radio" id="id_against_other_yes_negativ" value="Ja, er ist ablehnend" name="against_other"> Ja, er ist ablehnend</label>
+        </div><!--- .controls -->
+        In einigen Fällen sind die Kommentare schwer zu bewerten. Bitte klicken Sie in diesen Fällen auf das Kästchen "Nicht zu bewerten".
+
+    </p>
+
+    <p>
+        <strong>3. Sollte dieser Kommentar in einem Internetforum erlaubt sein?</strong><br>
+        Sind Sie persönlich der Meinung, dass der Kommentar in einem Internetforum erlaubt sein sollte?
+        <br>
+        <div class="controls  field-should_allow">
+            <label class="radio-inline" for="id_should_allow_nein"><input type="radio" id="id_should_allow_nein" value="Nein" name="should_allow"> Nein</label>
+            <label class="radio-inline" for="id_should_allow_yes"><input type="radio" id="id_should_allow_yes" value="Ja" name="should_allow"> Ja</label>
+            <label class="radio-inline" for="id_should_allow_dont_know"><input type="radio" id="id_should_allow_dont_know" value="Ich weiß nicht" name="should_allow"> Ich weiß nicht</label>
+        </div><!--- .controls -->
+    </p>
+
+    <p>
+        <strong>4. Welche Merkmale treffen auf den Kommentar zu?</strong><br>
+       Weiterhin werden Sie unter der Skala eine Liste von Merkmalen finden. Bitte klicken sie alle Merkmale, die Ihrer Meinung nach auf den Kommentar zutreffen. Sollte keines der Merkmale zutreffen, so klicken sie einfach keines an.
+        <label class="control-label" for="id_c_1">Liste von Merkmalen:</label>
+        <label class="checkbox">
+            <input type="checkbox" name='c_1' id="id_c_1"><span>Beinhaltet negative Vorurteile </span>
+        </label><br>
+        <label class="checkbox">
+            <input type="checkbox" name='c_2' id="id_c_2"><span>Nutzt rassistische Beleidigungen</span>
+        </label><br>
+        <label class="checkbox">
+            <input type="checkbox" name='c_3' id ='id_c_3' ><span> Beinhaltet  beleidigende, erniedrigende oder abwertende Worte </span>
+        </label><br>
+        <label class="checkbox">
+            <input type="checkbox" name='c_4' id ='id_c_4' ><span> Ruft zu Gewalt, Drohungen oder Diskriminierung auf </span>
+        </label><br>
+        <label class="checkbox">
+            <input type="checkbox" name='c_5' id ='id_c_5' ><span> Nutzt sexistische Beleidigungen </span>
+        </label><br>
+        <label class="checkbox">
+            <input type="checkbox" name='c_6' id ='id_c_6' ><span> Die sexuelle Orientierung oder das Geschlecht/Gender wird  herabgesetzt oder stigmatisiert </span><br>
+        </label>
+
+    </p>
+    <br><br>
+    <p>
+
+
+        Sie werden jeden Kommentar nur einmal sehen. Wenn Sie eine Seite beendet haben, dann klicken Sie bitte auf “Weiter”.  Sie werden insgesamt {{Constants.num_rounds_before}} Kommentare bewerten.
+
+
+
+
+    </p>
+<p>
+        Bitte drücken Sie “Weiter”, um mit der Aufgabe zu beginnen.
+
+        Vielen Dank für Ihre Unterstützung.
+</p>
+
+
+</div>
+
+
+        {% next_button %}
+
+{% endblock %}
+
+

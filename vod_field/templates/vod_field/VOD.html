@@ -1,0 +1,71 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Zusatzaufgabe zur Sicherung der Datenqualität im Team
+{% endblock %}
+
+{% block content %}
+    <p>
+
+    Vielen Dank für die Bewertung der {{ Constants.num_rounds_before }} Kommentare. Sie haben die Hauptaufgabe damit abgeschlossen und erhalten dafür {{ baseline_fee }}.
+    Ingesamt haben Sie <strong>{{ time_task_min }} Minuten </strong> für die Aufgabe benötigt.
+    Teilnehmer dieser Aufgabe benötigen normalerweise zwischen <strong>{{ Constants.lb_minutes}} Minuten</strong>
+    und <strong>{{ Constants.ub_minutes}} Minuten</strong> um {{ Constants.num_rounds_before }} Kommentare zu bewerten.<br><br>
+    
+	Wir benötigen jetzt <strong> genau einen Freiwilligen  </strong> aus Ihrem Team von
+    {% if pop_uncertain %}
+    {{ lb_group_size }} bis
+    {{ ub_group_size }} Personen.
+    {% else %}
+    genau {{ mean_group_size }} Personen.
+    {% endif %}
+    
+    <p>
+    <strong> Anleitung zur Zusatzaufgabe im Team: </strong>
+    <div class="instructions well well-lg" xmlns="http://www.w3.org/1999/html">
+
+
+   Um eine bessere Einschätzung der Kommentarbewertungen in ihrem Team zu ermöglichen und die Datenqualität zu verbessern, müssen {{Constants.num_rounds_after}} weitere Kommentare von Ihrem Team bewertet werden. 
+
+
+<ul>
+    <li><strong> Alle </strong>Teammitglieder erhalten jeweils einen Bonus von {{ vod_bonus }} €, wenn eine Person diese zusätzliche Aufgabe absolviert.</li>
+
+    <li>Alle Personen in Ihrem Team bekommen diese Zusatzaufgabe angeboten.</li>
+
+    <li>
+    Es genügt, dass sich <strong>eine Person</strong> in Ihrem Team von {% if pop_uncertain %}
+    {{ lb_group_size }} bis
+    {{ ub_group_size }} Personen
+    {% else %}
+    genau {{ mean_group_size }} Personen
+    {% endif %}
+    freiwillig meldet. 
+    Alle Teammitglieder erhalten dann die Bonuszahlung. 
+    Die Höhe der Bonuszahlung steigt nicht, wenn mehr als eine Person die Zusatzaufgabe absolviert.
+    </li>
+
+    <li>Sie bekommen den Bonus auch, wenn Sie sich nicht freiwillig melden aber sich eine andere Person findet. </li>
+
+
+    <li>Wenn sich in Ihrem Team niemand freiwillig meldet, dann bekommt auch niemand einen Bonus von {{ vod_bonus }} €.</li>
+
+    <li>Ihre Entscheidung ob Sie sich in Ihrem Team freiwillig melden wollen oder nicht, wird keinen Einfluss auf Ihre Bewertung auf der Clickworker
+    Plattform oder auf Ihr bisher verdientes Geld haben.</li>
+</ul>
+
+    </div>
+<p>
+
+<strong>
+    {% with label_vod as label_choice %}
+        {% formfield player.volunteer_decision label=label_choice  %}
+    {% endwith %}
+
+</strong>
+
+ <p>  {% next_button %}</p> 
+
+
+{% endblock %}

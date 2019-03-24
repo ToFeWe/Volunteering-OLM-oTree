@@ -1,0 +1,54 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Ende der Aufgabe
+{% endblock %}
+
+{% block content %}
+    <p>Die Aufgabe ist nun zu Ende. Vielen Dank für Ihre Teilnahme.</p><br> 
+    <p>
+    <strong>
+    Ihr Code für die Bezahlung in Clickworker für den ersten Teil der Aufgabe lautet:  {{ Constants.exit_code }}
+    </strong>
+    </p> <br><br>
+    Sie erhalten {{ baseline_fee }} für
+    das Bewerten der ersten {{ comments_before }} Kommentare.
+
+
+    {% if vod_choice %}
+        Da Sie freiwillig die zusätzlichen {{ comments_after }} Kommentare 
+        bewertet haben, erhalten Sie zusätzlich einen Bonus von {{ vod_bonus }} €. 
+    {% else %}
+        Sie haben sich nicht freiwillig gemeldet, um weitere Kommentare zu bewerten. Basierend auf 
+        den Entscheidungen der anderen Teammitglieder können Sie trotzdem den Bonus verdient haben.
+    {% endif %}
+    
+    Bitte beachten Sie, dass wir Ihnen die {% if vod_choice is False %} mögliche {% endif %} Bonuszahlung erst überweisen 
+    können, sobald alle Teilnehmer Ihres Teams die Aufgabe abgeschlossen haben.
+    </p>
+    <br>
+    <strong>Bitte tragen Sie im unteren Textfeld Ihre individuelle Clickworker-ID ein. Nachdem alle Teammitglieder die Aufgabe abgeschlossen haben, werden
+    wir Ihnen dann den 
+    {% if vod_choice %}
+        Bonus überweisen.
+    {% else %}
+        Bonus überweisen, sofern sich eine andere Person Ihres Teams freiwillig gemeldet hat und 
+        weitere Kommentare bewertet wurden.
+    {% endif %}
+    </strong>
+    Wir werden Ihre Clickworker-ID nur für die Überweisung der {% if vod_choice is False %} möglichen {% endif %} 
+Bonuszahlung nutzen und anschließend unverzüglich löschen. 
+<br><br>
+<strong>
+{% formfield player.clickworker_id label='Ihre individuelle ID auf Clickworker:' %}
+
+</strong>
+
+
+
+
+    {% next_button %}
+{% endblock %}
+
+

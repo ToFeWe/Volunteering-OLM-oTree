@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Vielen Dank
+{% endblock %}
+
+{% block content %}
+    <p>
+    Sie können diese Seite jetzt verlassen.
+    </p>
+    <p>
+    <strong>
+    Ihr Code für die Bezahlung in Clickworker lautet:  {{ Constants.exit_code }}
+    </strong>
+    </p>
+{% endblock %}
